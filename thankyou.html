@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're In! | Approved By E</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #183468;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* matches popup card exactly */
+  .card {
+    background: linear-gradient(135deg, #e8eefb 0%, #d4e0f7 100%);
+    border-radius: 16px;
+    padding: 56px 52px;
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+  }
+
+  .check-wrap {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #1b3a6b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 1.4rem;
+    color: #aec4ee;
+  }
+
+  .tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #21457d;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .tag::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #2c5499;
+    display: inline-block;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: #1b3a6b;
+    margin-bottom: 16px;
+  }
+
+  h1 span { color: #2c5499; }
+
+  p {
+    font-size: 0.92rem;
+    color: #46587a;
+    line-height: 1.75;
+    font-weight: 400;
+    margin-bottom: 32px;
+  }
+
+  .perks {
+    list-style: none;
+    margin-bottom: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+  }
+
+  .perks li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.88rem;
+    color: #46587a;
+  }
+
+  .perks li::before {
+    content: '✓';
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #1b3a6b;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* stats row matching popup */
+  .badges {
+    display: flex;
+    border: 1px solid #b9c8e6;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    margin-bottom: 36px;
+  }
+
+  .badge {
+    flex: 1;
+    padding: 16px;
+    text-align: center;
+    border-right: 1px solid #b9c8e6;
+  }
+
+  .badge:last-child { border-right: none; }
+
+  .badge .n {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1b3a6b;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .badge .t {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8294b5;
+  }
+
+  .btn-navy {
+    display: block;
+    width: 100%;
+    background: #1b3a6b;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: transform 0.12s, background 0.2s;
+    text-align: center;
+  }
+
+  .btn-navy:hover { transform: translateY(-2px); background: #21457d; }
+
+  .btn-outline {
+    display: block;
+    width: 100%;
+    background: transparent;
+    color: #1b3a6b;
+    border: 1px solid #b9c8e6;
+    border-radius: 8px;
+    padding: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    text-align: center;
+  }
+
+  .btn-outline:hover { background: #e8eefb; }
+
+  .privacy {
+    font-size: 0.7rem;
+    color: #8294b5;
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  @media (max-width: 480px) {
+    .card { padding: 40px 28px; }
+    h1 { font-size: 2.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="check-wrap">✓</div>
+  <div class="tag">The Newsletter · Approved By E</div>
+  <h1>You're <span>in!</span></h1>
+  <p>Welcome to the list! You'll start receiving exclusive credit tips, score-boosting strategies, and subscriber-only offers straight to your inbox.</p>
+
+  <ul class="perks">
+    <li>Monthly credit-building strategies</li>
+    <li>Exclusive subscriber discounts on services</li>
+    <li>Real client results & success stories</li>
+  </ul>
+
+  <div class="badges">
+    <div class="badge"><span class="n">500+</span><span class="t">Subscribers</span></div>
+    <div class="badge"><span class="n">100+</span><span class="t">Pts avg gain</span></div>
+    <div class="badge"><span class="n">Free</span><span class="t">Always</span></div>
+  </div>
+
+  <a href="https://approvedbye.com" class="btn-navy">Back to Approved By E</a>
+  <a href="https://approvedbye.com/#packages" class="btn-outline">View Our Services</a>
+  <p class="privacy">🔒 100% private. Unsubscribe anytime.</p>
+</div>
+
+</body>
+</html>
